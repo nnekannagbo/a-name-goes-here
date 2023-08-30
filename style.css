@@ -1,0 +1,250 @@
+/* global styles on the top by targeting the "global styling tag" which is the body tag  */
+/* If there are two equal CSS rules, the browser will apply the one it reads last. */
+/* Specificity helps determine which styles should be applied to particular elements. If you find yourself adding CSS styles that don't seem to be having any affect on your HTML, double check there is not a more specific style somewhere else in your code. */
+
+/* Media queries: start with the @media keyword, then specify what screen types and what screen sizes we would like these styles to be applied to. 
+Different screen types include screen, print (used for printers) and speech (for screen readers).*/
+/* min width = apply styles to screens larger than the min - max width = apply styles to screens less than the max */
+
+/* @media print {
+  #header-image {
+      display: none;
+  }
+}
+This removes the header image of a document when a user prints it */
+
+
+
+/* GLOBAL STYLES */
+html {
+	scroll-behavior: smooth;
+}
+
+/**
+ * Disable smooth scrolling when users have prefers-reduced-motion enabled
+ */
+ @media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    margin: 0; /* removes the thin white border around the page that the browser automatically applied */
+}
+
+body h1 a {
+    text-decoration: none;
+    color: black;
+}
+
+body h1 a:visited {
+    color: black;
+}
+
+.container {
+    padding: 30px 150px;
+}
+
+.h1-style {
+    font-weight: 600;
+    font-size: 1.7em;
+}
+
+p {
+    font-size: 17px;
+    color: saddlebrown;
+}
+
+p::selection {
+    background-color: chartreuse;
+}
+
+/* a {
+    transition: font-color 3s linear 2s;
+} */
+
+a:hover {
+    background-color:floralwhite;
+    /* color: blue; */
+}
+
+a::selection {
+    background-color: chartreuse;
+}
+
+a:visited {
+    color: #0000ee;
+}
+
+
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+
+.badge-pill {
+    padding-right: 0.6em;
+    padding-left: 0.6em;
+    border-radius: 10rem;
+}
+
+.badge-primary {
+    color: #fff;
+    background-color: blue;
+    /* background-image: linear-gradient(to right, #23a6d5, rgb(76, 175, 76)); */
+    /* background-color: #007bff; */
+}
+
+.badge-outline {
+    color: #000;
+    background-image: white;
+    border: solid black 2px;
+    /* background-color: #007bff; */
+}
+
+/* Top page */
+
+#top-page {
+    background-color:aliceblue;
+}
+
+#top-page .title {
+    font-size: 40px;
+}
+
+#top-page .intro {
+    font-size: 18px;
+    margin-top: 2rem;
+    color: saddlebrown;
+    font-weight: 600;
+}
+
+.profile-pic {
+    width: 100%;
+    /* width and height will proportionally adjust if you take out one or the other and just adjust one property */
+    /* pixels is a fixed width. another value instead of pixels can be percentage - your image size is the percentage of the window size and it adjusts to the size of the brwoser as it gets smaller/bigger */
+    /* percentages is what we'll use for mobile development */
+    /* if an image is really small, we'll use pixels, otherwise we'll use percentages because we want it to adjust for mobile */
+}
+
+/* ABOUT SECTION */
+
+#about-section {
+    background-color: honeydew;
+}
+
+/* SKILLS SECTION */
+#skills-section {
+    background-color: rgb(255, 255, 229);
+}
+
+meter::-webkit-meter-optimum-value {
+    background: chartreuse;
+}
+
+meter::-webkit-meter-suboptimum-value {
+    background-color: yellow;
+}
+
+meter::-webkit-meter-even-less-good-value {
+    background-color: red;
+}
+
+.no-indent {
+    /* margin: 0px; */
+    padding-left: 17px;
+    /* list-style:; */
+}
+
+.li-style {
+    color: saddlebrown;
+}
+
+/* EXPERIENCE SECTION */
+#experience-section {
+    background-color: #fff2d7;
+}
+
+/* PROJECTS SECTION */
+#projects-section {
+    background-color: rgb(255, 235, 243);
+}
+
+/* FOOTER SECTION */
+#footer-section {
+    background-color:aliceblue;
+}
+
+#footer-caption {
+    margin-top: 45px;
+}
+
+
+/* box model includes: 
+    margin: 25px;
+    border: dotted 5px;
+    padding: 50px;
+    content
+*/
+
+/* code page reads top to bottom so whatevers read last will have higher priority */
+/* id's can only be used once per page so css gives it a higher priority regardless of position */
+
+/* Playground */
+#playground {
+    background-color: green;
+    width: 500px;
+    height: 500px;
+    border: dotted 5px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Smart phone */
+@media screen and (max-width: 912px){  
+    .container {
+        padding: 30px 30px;
+    }
+}
+
+/* Tablets, iPad air & mini */
+@media screen and (min-width: 768px){   /* min with of 768px or higher */
+    #skills-col {
+            -webkit-column-count: 2;  /* Chrome/Opera, Safari */
+            -moz-column-count: 2; /* Mozilla Firefox */
+            column-count: 2;
+        }
+
+    .no-indent {
+        padding-inline-start: 40px;
+    }
+}
+
+@media screen and (min-width: 540px){  
+    .no-indent {
+        padding-inline-start: 40px;
+    }
+}
+
+
+/* Desktop and larger */
+
+@media screen and (min-width: 1280px){   /* min with of 768px or higher */
+    #skills-col {
+            -webkit-column-count: 3;  /* Chrome/Opera, Safari */
+            -moz-column-count: 3; /* Mozilla Firefox */
+            column-count: 3;
+        }
+}
