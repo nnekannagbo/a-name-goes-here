@@ -175,6 +175,9 @@ meter::-webkit-meter-even-less-good-value {
     background-color: #fff2d7;
 }
 
+.work_experience {
+    padding-bottom: 10px;
+}
 /* PROJECTS SECTION */
 #projects-section {
     background-color: rgb(255, 235, 243);
